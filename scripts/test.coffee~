@@ -2,7 +2,7 @@ module.exports = (robot) ->
 	robot.hear /青木/, (msg) ->
 		msg.send "ホモ"
 
-	robot.hear /あ[ー|〜|～]/, (msg) ->
+	robot.hear /あ[ー|〜|\x8160|\x7e|\301c|\ff5e]/, (msg) ->
 		msg.send "い〜っすね〜"
 
 	robot.hear /(ですよね|ですね)[?|？]/, (msg) ->
