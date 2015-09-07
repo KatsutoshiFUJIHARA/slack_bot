@@ -35,6 +35,9 @@ module.exports = (robot) ->
 	robot.hear /死|生きてい?けない/, (msg) ->
 		msg.send "https://pbs.twimg.com/profile_images/552832078018904064/tpjd2UR5.jpeg"
 
+  robot.hear /ゆゆ式ガチャ/, (msg) ->
+    msg.send "http://dic.nicovideo.jp/oekaki/662205.png"
+
 	robot.hear /今日も[一1１]日/, (msg) ->
 		msg.send do ->
 			array_of_pict = [
