@@ -28,7 +28,7 @@ module.exports = (robot) ->
       ]
       array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length]
 
-  robot.hear /(仕事|タスク)*(振[るり]|する|や[るり]|した|めぅ)/, (msg) ->
+  robot.hear /(仕事|タスク).*(振[るり]|する|や[るり]|した|めぅ)/, (msg) ->
     msg.send "http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bsmgvcscuaenmdx.jpg"
 
   robot.hear /明日*(する|や[るり]|めぅ)/, (msg) ->
