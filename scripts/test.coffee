@@ -1,5 +1,9 @@
 request = require('request')
 
+add_timestamp = (text) ->
+ timestamp = (new Date()).toISOString().replace(/[^0-9]/g, "")
+ text + "?#{timestamp}"
+
 module.exports = (robot) ->
   robot.hear /青木/, (msg) ->
     msg.send "ホモ"
@@ -18,7 +22,7 @@ module.exports = (robot) ->
       return str
 
   robot.hear /こんにち[はわ]|ようこそ|おはよう|welcome/i, (msg) ->
-    msg.send "http://stat.ameba.jp/user_images/20130312/16/psychic409/f9/79/j/o0253028912454372169.jpg"
+    msg.send add_timestamp("http://stat.ameba.jp/user_images/20130312/16/psychic409/f9/79/j/o0253028912454372169.jpg")
 
   robot.hear /^め[ぅう]$/, (msg) ->
     msg.send do ->
@@ -26,23 +30,23 @@ module.exports = (robot) ->
         "http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bsmgvcscuaenmdx.jpg"
         "http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bzcawkbcaaedkjk.jpg"
       ]
-      array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length]
+      add_timestamp(array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length])
 
   robot.hear /(仕事|タスク).*(振[るり]|する|や[るり]|した|めぅ)/, (msg) ->
-    msg.send "http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bsmgvcscuaenmdx.jpg"
+    msg.send add_timestamp("http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bsmgvcscuaenmdx.jpg")
 
   robot.hear /明日*(する|や[るり]|めぅ)/, (msg) ->
-    msg.send "http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bzcawkbcaaedkjk.jpg"
+    msg.send add_timestamp("http://yuya2001.cocolog-nifty.com/blog/images/2015/06/28/bzcawkbcaaedkjk.jpg")
 
   robot.hear /死|生きてい?けない/, (msg) ->
-    msg.send "https://pbs.twimg.com/profile_images/552832078018904064/tpjd2UR5.jpeg"
+    msg.send add_timestamp("https://pbs.twimg.com/profile_images/552832078018904064/tpjd2UR5.jpeg")
 
   robot.hear /ゆゆ式ガチャ/, (msg) ->
     img_api = "http://ajax.googleapis.com/ajax/services/search/images?q=#{encodeURIComponent('ゆゆ式 キャプチャ')}&v=1.0&rsz=8"
     request.get img_api, (err, res, body) ->
       random = Math.floor(Math.random() * 8)
       img_url = JSON.parse(body).responseData.results[random].unescapedUrl
-      msg.send img_url
+      msg.send add_timestamp(img_url)
 
   robot.hear /今日も[一1１]日/, (msg) ->
     msg.send do ->
@@ -58,4 +62,4 @@ module.exports = (robot) ->
         "http://cdn-ak.f.st-hatena.com/images/fotolife/a/asimino/20140707/20140707144407.jpg"
         "http://charamaf.com/wp-content/uploads/6e059e7cb6e38b2b9b97c54ce11a9b4d-304x171.jpg"
       ]
-      array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length]
+      add_timestamp(array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length])
