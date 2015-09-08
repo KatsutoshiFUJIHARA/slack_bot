@@ -9,7 +9,7 @@ module.exports = (robot) ->
     msg.send "ホモ"
 
   robot.hear /あ[ー〜～]/, (msg) ->
-   emsg.send "い〜っすね〜"
+		msg.send "い〜っすね〜"
 
   robot.hear /(ですよね|ですね)[?？]/, (msg) ->
     msg.send "いや、違います"
