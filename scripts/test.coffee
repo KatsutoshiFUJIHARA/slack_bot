@@ -9,7 +9,7 @@ module.exports = (robot) ->
     msg.send "ホモ"
 
   robot.hear /あ[ー〜～]/, (msg) ->
-   emsg.send "い〜っすね〜"
+    msg.send "い〜っすね〜"
 
   robot.hear /(ですよね|ですね)[?？]/, (msg) ->
     msg.send "いや、違います"
@@ -63,3 +63,6 @@ module.exports = (robot) ->
         "http://charamaf.com/wp-content/uploads/6e059e7cb6e38b2b9b97c54ce11a9b4d-304x171.jpg"
       ]
       add_timestamp(array_of_pict[Math.floor(Math.random() * 100) % array_of_pict.length])
+
+  robot.hear /testes/, (msg) ->
+    msg.send "https://boiling-anchorage-8020.herokuapp.com/tmp/test.png"
